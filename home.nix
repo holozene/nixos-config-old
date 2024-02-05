@@ -27,7 +27,6 @@
               ../../user/app/virtualization/virtualization.nix # virtual machines
               ../../user/app/flatpak/flatpak.nix # flatpaks
               ../../user/lang/cc/cc.nix # C and C++ tools
-
             ];
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
