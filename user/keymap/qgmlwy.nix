@@ -1,9 +1,8 @@
 { config, lib, pkgs, ... }:
 
-  # sudo nixos-rebuild switch
 {
   services.xserver.xkbVariant = lib.mkOverride rec {
-    description  = "";
+    description  = "carpalx qgmlwy";
     languages    = [ "eng" ];
     # todo: make sure extension is correct
     layout = pkgs.writeText "qgmlwy" ''

@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, lib, pkgs, blocklist-hosts, username, name, hostname, timezone, locale, wm, editor, theme, ... }:
+
 {
   imports =
     [ ../../system/hardware-configuration.nix
@@ -12,14 +13,14 @@
       ../../system/hardware/opengl.nix
       ../../system/hardware/networking.nix
       ../../system/hardware/printing.nix
-      (./. + "../../../system/wm"+("/"+wm)+".nix") # window manager
-      (./. + "../../../system/editor"+("/"+editor)+("/"+editor)+".nix") # window manager
+      (./. + "../../../system/wm/"+wm+".nix") # window manager
+      (./. + "../../../user/editor/"+editor+"/"+editor+".nix") # editor
       ../../system/app/flatpak.nix
       ../../system/app/virtualization.nix
       ../../system/security/doas.nix
       ../../system/security/gpg.nix
       ../../system/security/blocklist.nix
-      ../../system/security/firewall.nix
+      ../../system/security/firewall.nix # todo: consider whether to keep this
       ../../system/security/firejail.nix
       ../../system/security/openvpn.nix
       ../../system/style/stylix.nix

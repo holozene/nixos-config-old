@@ -12,7 +12,7 @@
     # ----- USER SETTINGS ----- #
     username = "holozene"; # username
     name = "Holozene"; # identifier
-    email = "holozene@protonmail.me"; # email
+    email = "holozene@proton.me"; # email
     dotfilesDir = "~/.dotfiles"; # absolute path of the local repo
     theme = "uwunicorn"; # selcted theme from the themes directory (./themes/)
     wm = "hyprland"; # selected window manager or desktop environment; must select one in both ./user/wm/ and ./system/wm/
@@ -22,7 +22,7 @@
     term = "wezterm"; # default terminal command
     font = "Intel One Mono"; # font
     fontPkg = pkgs.intel-one-mono; # font package
-    kb_layout = "qgmlwy"; # keyboard layout
+    keymap = "qgmlwy"; # keyboard layout
 
     # editor spawning translator
     # generates a command that can be used to spawn editor inside a gui
@@ -53,7 +53,7 @@
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ (./. + "/profiles"+("/"+profile)+"/home.nix") ]; # load home.nix from selected PROFILE
+          modules = [ (./. + "/profiles/"+profile+"/home.nix") ]; # load home.nix from selected PROFILE
           extraSpecialArgs = {
             # pass config variables from above
             inherit username;
@@ -70,7 +70,7 @@
             inherit browser;
             inherit editor;
             inherit term;
-            inherit kb_layout;
+            inherit keymap;
             inherit spawnEditor;
             inherit (inputs) nix-doom-emacs;
             inherit (inputs) stylix;
@@ -88,7 +88,7 @@
     nixosConfigurations = {
       system = lib.nixosSystem {
         inherit system;
-        modules = [ (./. + "/profiles"+("/"+profile)+"/configuration.nix") ]; # load configuration.nix from selected PROFILE
+        modules = [ (./. + "/profiles/"+profile+"/configuration.nix") ]; # load configuration.nix from selected PROFILE
         specialArgs = {
           # pass config variables from above
           inherit username;

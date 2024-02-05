@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
 
-  # My shell aliases
+  # shell aliases
   myAliases = {
     cd = "zoxide";
     ls = "lsd --icons -l -T -L=1";
@@ -20,11 +20,10 @@ let
 in
 {
 
-  # I use zsh btw
+  # set zsh as shell
   environment.systemPackages = with pkgs; [ zsh ];
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
 
   programs.zsh = {
     enable = true;
