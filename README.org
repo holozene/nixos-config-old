@@ -4,7 +4,7 @@
 
 
 ** What is this repository?
-These are configuration files for a highly modular NixOS setup(s). Based on [[https://gitlab.com/librephoenix/nixos-config][LibrePhoenix's NixOS Repo]].
+These are configuration files for highly modular NixOS setups. Based on [[https://gitlab.com/librephoenix/nixos-config][LibrePhoenix's NixOS Repo]].
 
 Here is the hyperland config:
 [[desktop.png]]
@@ -52,10 +52,10 @@ In some cases, since this config is based in =nixpgs-unstable=, we must patch ni
 
 Patches can either be local or remote, so we can even import unmerged pull requests by using =fetchpatch= and the raw patch url, i.e: https://github.com/NixOS/nixpkgs/pull/example.patch.
 
-I currently curate patches local to this repo in the [[./patches][patches]] directory.
+Currently patches local to this repo are curated in the [[./patches][patches]] directory.
 
 ** Profiles
-I separate my configurations into [[./profiles][profiles]] (essentially system templates), i.e:
+Configurations are separated into [[./profiles][profiles]] (essentially system templates), i.e:
 - [[./profiles/personal][Personal]] - Personal laptop/desktop
 - [[./profiles/homelab][Homelab]] - Server or homelab
 - [[./profiles/wsl][WSL]] - Windows Subystem for Linux
