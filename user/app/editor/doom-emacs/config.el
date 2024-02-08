@@ -134,7 +134,7 @@
     ;; line 4
     ( (,"Config" "" "" (lambda (&rest _)) 'dired-mark)
      (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust 0.0)
-      "System config" "" (lambda (&rest _) (projectile-switch-project-by-name "~/.dotfiles" t)) 'dired-mark)
+      "System config" "" (lambda (&rest _) (projectile-switch-project-by-name "/etc/nixos" t)) 'dired-mark)
      (,(all-the-icons-material "help" :height 1.0 :v-adjust -0.2)
       "Doom documentation" "" (lambda (&rest _) (doom/help)) 'dired-mark)
     )))
@@ -1133,7 +1133,7 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
   (let ((default (file-name-as-directory (expand-file-name default-directory)))
         (home (expand-file-name "~/")))
     (when (string= default home)
-      (let ((gitdir (expand-file-name "~/.dotfiles.git/")))
+      (let ((gitdir (expand-file-name "/etc/nixos.git/")))
         (push (format "GIT_WORK_TREE=%s" home) env)
         (push (format "GIT_DIR=%s" gitdir) env))))
   env)

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, email, dotfilesDir, ... }:
+{ config, lib, pkgs, username, email, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should

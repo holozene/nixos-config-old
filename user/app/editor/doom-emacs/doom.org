@@ -198,7 +198,7 @@ Doom Emacs is traditionally installed by cloning the repository ([[https://githu
     ;; line 4
     ( (,"Config" "" "" (lambda (&rest _)) 'dired-mark)
      (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust 0.0)
-      "System config" "" (lambda (&rest _) (projectile-switch-project-by-name "~/.dotfiles" t)) 'dired-mark)
+      "System config" "" (lambda (&rest _) (projectile-switch-project-by-name "/etc/nixos" t)) 'dired-mark)
      (,(all-the-icons-material "help" :height 1.0 :v-adjust -0.2)
       "Doom documentation" "" (lambda (&rest _) (doom/help)) 'dired-mark)
     )))
@@ -1315,7 +1315,7 @@ https://github.com/magit/magit/issues/460 (@cpitclaudel)."
   (let ((default (file-name-as-directory (expand-file-name default-directory)))
         (home (expand-file-name "~/")))
     (when (string= default home)
-      (let ((gitdir (expand-file-name "~/.dotfiles.git/")))
+      (let ((gitdir (expand-file-name "/etc/nixos.git/")))
         (push (format "GIT_WORK_TREE=%s" home) env)
         (push (format "GIT_DIR=%s" gitdir) env))))
   env)
@@ -1974,7 +1974,7 @@ Any git package can be configured for a particular commit or branch:
 * Nix Integration
 In order to have Nix load my Doom Emacs configuration [[./doom.nix][doom.nix]], which I source in the =imports= block of my [[../../../profiles/work/home.nix][home.nix]].
 #+BEGIN_SRC nix :tangle doom.nix
-{ config, lib, pkgs, eaf, eaf-browser, org-nursery, phscroll, org-yaap, org-side-tree, org-timeblock, theme, font, name, username, email, dotfilesDir, profile, wmType, defaultRoamDir, ... }:
+{ config, lib, pkgs, eaf, eaf-browser, org-nursery, phscroll, org-yaap, org-side-tree, org-timeblock, theme, font, name, username, email, profile, wmType, defaultRoamDir, ... }:
 let
   themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes"+("/"+theme)+"/polarity.txt"));
   dashboardLogo = ./. + "/nix-" + themePolarity + ".png";
@@ -2106,7 +2106,6 @@ in
   (setq system-nix-profile "''+profile+''") ; what profile am I using?
   (setq system-wm-type "''+wmType+''") ; wayland or x11?
   (setq doom-font (font-spec :family "''+font+''" :size 20)) ; import font
-  (setq dotfiles-dir "''+dotfilesDir+''") ; import location of dotfiles directory
  '';
 }
 #+END_SRC

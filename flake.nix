@@ -13,7 +13,6 @@
     username = "holozene"; # username
     name = "Holozene"; # identifier
     email = "holozene@proton.me"; # email
-    dotfilesDir = "~/.dotfiles"; # absolute path of the local repo
     profile = "personal";
     theme = "uwunicorn"; # selcted theme from the themes directory (./themes/)
     wm = "hyprland"; # selected window manager or desktop environment; must select one in both ./user/wm/ and ./system/wm/
@@ -81,7 +80,6 @@
             inherit name;
             inherit hostname;
             inherit email;
-            inherit dotfilesDir;
             inherit defaultRoamDir;
             inherit theme;
             inherit font;

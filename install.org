@@ -6,13 +6,13 @@ These are just some simple install notes for myself (in-case I have to reinstall
 ** Install Notes for Myself
 To get this running on a NixOS system, start by cloning the repo:
 #+BEGIN_SRC sh :noeval
-git clone https://gitlab.com/librephoenix/nixos-config.git ~/.dotfiles
+git clone https://gitlab.com/librephoenix/nixos-config.git /etc/nixos
 #+END_SRC
 
 To get the hardware configuration on a new system, either copy from =/etc/nixos/hardware-configuration.nix= or run:
 #+BEGIN_SRC sh :noeval
-cd ~/.dotfiles
-sudo nixos-generate-config --show-hardware-config > system/hardware-configuration.nix
+cd /etc/nixos
+sudo nixos-generate-config --show-hardware-config --root /mnt > system/hardware-configuration.nix
 #+END_SRC
 
 Also, if you have a differently named user account than my default (=emmet=), you /must/ update the following lines in the let binding near the top of the [[./flake.nix][flake.nix]]:
@@ -30,7 +30,7 @@ There are many more config options there that you may also want to change as wel
 
 Once the variables are set, then switch into the system configuration by running:
 #+BEGIN_SRC sh :noeval
-cd ~/.dotfiles
+cd /etc/nixos
 sudo nixos-rebuild switch --flake .#system
 #+END_SRC
 
@@ -51,7 +51,7 @@ Home-manager may also not work without re-logging back in after it has been inst
 
 Once home-manager is running, my home-manager configuration can be installed with:
 #+BEGIN_SRC sh :noeval
-cd ~/.dotfiles
+cd /etc/nixos
 home-manager switch --flake .#user
 #+END_SRC
 

@@ -45,7 +45,6 @@ currently the following variables are defined to import into the system config:
 - =hostname= - Hostname for machine
 - =myHomeDir= - Absolute path to home directory derived from =username=
 - =email= - Email
-- =dotfilesDir= - Path to my dotfiles directory on the system
 - =theme= - base16 theme stored in ../themes to be used
 - =themePolarity= - whether theme is =light= or =dark=
 - =backgroundUrl= - Direct link to background wallpaper (used for login screen)

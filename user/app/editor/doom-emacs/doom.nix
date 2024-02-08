@@ -1,4 +1,4 @@
-{ config, lib, pkgs, eaf, eaf-browser, org-nursery, phscroll, org-yaap, org-side-tree, org-timeblock, theme, font, name, username, email, dotfilesDir, profile, wmType, defaultRoamDir, ... }:
+{ config, lib, pkgs, eaf, eaf-browser, org-nursery, phscroll, org-yaap, org-side-tree, org-timeblock, theme, font, name, username, email, profile, wmType, defaultRoamDir, ... }:
 let
   themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes"+("/"+theme)+"/polarity.txt"));
   dashboardLogo = ./. + "/nix-" + themePolarity + ".png";
@@ -130,6 +130,5 @@ in
   (setq system-nix-profile "''+profile+''") ; what profile am I using?
   (setq system-wm-type "''+wmType+''") ; wayland or x11?
   (setq doom-font (font-spec :family "''+font+''" :size 20)) ; import font
-  (setq dotfiles-dir "''+dotfilesDir+''") ; import location of dotfiles directory
  '';
 }

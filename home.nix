@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stdenv, fetchurl, nix-doom-emacs, stylix, username, email, dotfilesDir, theme, wm, browser, editor, spawnEditor, term, keymap, ... }:
+{ config, lib, pkgs, stdenv, fetchurl, nix-doom-emacs, stylix, username, email, theme, wm, browser, editor, spawnEditor, term, keymap, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -63,7 +63,7 @@
     desktop = null;
     publicShare = null;
     extraConfig = {
-      XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
+      # XDG_DOTFILES_DIR = "/etc/nixos";
       XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/Archive";
       XDG_VM_DIR = "${config.home.homeDirectory}/Machines";
       XDG_ORG_DIR = "${config.home.homeDirectory}/Org";
