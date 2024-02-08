@@ -43,6 +43,7 @@ in
 
   stylix.targets.alacritty.enable = true;
   stylix.targets.kitty.enable = true;
+  stylix.targets.wezterm.enable = true;
   stylix.targets.gtk.enable = true;
   stylix.targets.rofi.enable = if (wmType == "x11") then true else false;
   stylix.targets.feh.enable = if (wmType == "x11") then true else false;
