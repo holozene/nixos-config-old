@@ -51,6 +51,26 @@
     lib = nixpkgs.lib;
 
   in {
+    nixosConfigurations = {
+      system = lib.nixosSystem {
+        inherit system;
+        modules = [ (./. + "/profiles/"+profile+"/configuration.nix") ]; # load configuration.nix from selected PROFILE
+        specialArgs = {
+          # pass config variables from above
+          inherit username;
+          inherit name;
+          inherit hostname;
+          inherit timezone;
+          inherit locale;
+          inherit theme;
+          inherit font;
+          inherit fontPkg;
+          inherit wm;
+          inherit (inputs) stylix;
+          inherit (inputs) blocklist-hosts;
+        };
+      };
+    };
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -84,26 +104,6 @@
             inherit (inputs) phscroll;
             inherit (inputs) hyprland-plugins;
           };
-      };
-    };
-    nixosConfigurations = {
-      system = lib.nixosSystem {
-        inherit system;
-        modules = [ (./. + "/profiles/"+profile+"/configuration.nix") ]; # load configuration.nix from selected PROFILE
-        specialArgs = {
-          # pass config variables from above
-          inherit username;
-          inherit name;
-          inherit hostname;
-          inherit timezone;
-          inherit locale;
-          inherit theme;
-          inherit font;
-          inherit fontPkg;
-          inherit wm;
-          inherit (inputs) stylix;
-          inherit (inputs) blocklist-hosts;
-        };
       };
     };
   };
