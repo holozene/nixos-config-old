@@ -80,7 +80,7 @@
             inherit name;
             inherit hostname;
             inherit email;
-            inherit defaultRoamDir;
+            # inherit defaultRoamDir;
             inherit theme;
             inherit font;
             inherit fontPkg;
